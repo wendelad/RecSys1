@@ -1,0 +1,3 @@
+E:\Mestrado\WebMedia\programa\GeneticAlgorithm\bin\x64\Release\GeneticAlgorithm.dll
+E:\Mestrado\WebMedia\programa\GeneticAlgorithm\obj\x64\Release\GeneticAlgorithm.csprojResolveAssemblyReference.cache
+E:\Mestrado\WebMedia\programa\GeneticAlgorithm\obj\x64\Release\GeneticAlgorithm.dll

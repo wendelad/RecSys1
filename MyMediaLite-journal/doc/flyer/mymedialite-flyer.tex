@@ -1,0 +1,235 @@
+\documentclass[a4paper, foldmark, 12pt]{leaflet}
+%\documentclass[a4paper, foldmark, nocombine]{leaflet}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{times}
+\usepackage{floatflt}
+
+%% Example users
+\newcommand{\UserI}{\textit{Alice}}
+\newcommand{\UserII}{\textit{Ben}}
+\newcommand{\UserIII}{\textit{Christine}}
+
+%% Example movies
+\newcommand{\MovieI}{\textit{The Usual Suspects}}
+\newcommand{\MovieII}{\textit{American Beauty}}
+\newcommand{\MovieIII}{\textit{The Godfather}}
+\newcommand{\MovieIV}{\textit{Road Trip}}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyfoot{}
+
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\fancyhead[CO,CE]{
+	\vspace{-1cm}
+	\begin{center}
+		\includegraphics[width=9.0cm]{fig/MyMediaScreenwallBanner.jpg}
+	\end{center}	
+}
+\fancyfoot[C]{\thepage}
+
+%\setmargins{3cm}{2cm}{1cm}{1cm}
+
+\headheight = 2cm
+
+
+
+\title{MyMediaLite Recommender System Algorithm Library}
+
+\author{
+	\includegraphics[width=4.0cm]{fig/uni-hildesheim-400x400.jpg}\\
+	Machine Learning Lab
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+MyMediaLite is a lightweight, multi-purpose library
+of recommender system algorithms.
+It addresses the two most common scenarios in collaborative filtering:
+\textbf{rating prediction} (e.g. on a scale of 1 to 5 stars)
+and \textbf{item prediction from positive-only feedback} (e.g. from clicks, likes, or purchase actions).
+
+\begin{center}
+	\url{http://ismll.de/mymedialite}
+\end{center}
+
+\newpage
+
+\section{MyMediaLite's Key Features}
+
+\textbf{Choice:} \vspace{-0.6em}
+		\begin{list}{\labelitemi}{\leftmargin=1em} \addtolength{\itemsep}{-0.5\baselineskip}
+                \item dozens of different recommendation methods,
+                \item methods can use collaborative, content, or relational data.
+        \end{list}
+
+\vspace{-0.5em}
+
+\textbf{Accessibility:} \vspace{-0.6em}
+    	\begin{list}{\labelitemi}{\leftmargin=1em}\addtolength{\itemsep}{-0.5\baselineskip}
+                \item Includes evaluation routines for rating and item prediction;
+                \item command line tools that read a simple text-based input format;
+				\item usable from C\#, Python, Ruby, F\#, etc.,
+                \item complete documentation of the library and its tools.
+        \end{list}
+
+\vspace{-0.5em}
+
+\textbf{Compactness:} Core library is less than 200 KB ``big''.
+
+\textbf{Portability:}
+	Written in C\#, for the .NET platform;
+    runs on every architecture where Mono works: Linux, Windows, Mac OS X.
+
+\textbf{Parallel processing} on multi-core/multi-processor systems.
+
+\textbf{Serialization:} save and reload recommender models.
+
+\textbf{Real-time incremental updates} for most recommenders.
+
+\textbf{Freedom:} free/open source software (GPL).
+
+\newpage
+
+\section{Target Groups}
+
+\subsection{Researchers}
+\begin{itemize}
+	\item Don't waste your time implementing methods if you actually want to study
+	      other aspects of recommender systems!
+	\item Use the MyMediaLite recommenders as baseline methods in benchmarks.
+	\item Use MyMediaLite's infrastructure as an easy starting point to implement your own methods.
+\end{itemize}
+
+\subsection{Developers}
+\begin{itemize}
+	\item Add recommender system technologies to your software or website.
+\end{itemize}
+
+\subsection{Educators and Students}
+\begin{itemize}
+	\item Demonstrate/see how recommender system methods are implemented.
+	\item Use MyMediaLite as a basis for you school projects.
+\end{itemize}
+
+\newpage
+
+\section{Recommendation Tasks Addressed}
+
+\subsection{Rating Prediction}
+
+Popularized by systems like MovieLens, Netflix, or Jester,
+this is the most-discussed collaborative filtering task in the
+recommender systems literature.
+Given a set of ratings, e.g. on a scale from 1 to 5,
+the goal is predict unknown ratings.
+
+\begin{center}
+      \begin{tabular}{|l||c|c|c|}
+        \hline
+	           & \UserI & \UserII & \UserIII \\ \hline
+	\hline
+	\MovieI    &  5   &     & 4     \\ \hline
+	\MovieII   &  3   & 4   & 3    \\ \hline
+	\MovieIII  &      & \textbf{??}    & 1    \\ \hline
+	\MovieIV   &  2   &     &        \\ \hline
+      \end{tabular}
+\end{center}
+
+
+\subsection{Positive-Only Feedback Item Recommendation}
+
+Getting ratings from users requires explicit actions from their side.
+Much more data is available in the form of implicit feedback,
+e.g. whether a user has viewed or purchased a product in an online shop.
+Very often this information is positive-only,
+i.e. we know users like the products they buy, but we cannot easily assume
+that they do not like everything they have not (yet) bought.
+
+%% TODO different picture
+\begin{center}
+	\includegraphics[width=7.0cm]{fig/interpretation_single.pdf}
+\end{center}
+
+\newpage 
+
+\section{Implemented Methods}
+\textbf{Rating Prediction}
+\begin{itemize}
+	\item averages: global, user, item
+	\item linear baseline method by Koren and Bell
+        \item frequency-weighted Slope One
+	\item k-nearest neighbor (kNN):
+		\begin{itemize}
+			\item based on user or item similarities, with different similarity measures
+			\item collaborative or attribute-/content-based
+		\end{itemize}
+	\item (biased) matrix factorization; factor-wise/SGD training; optimized for RMSE, logistic loss or MAE
+\end{itemize}
+
+\textbf{Item Prediction}
+\begin{itemize}
+	\item random
+	\item most popular item
+	\item linear content-based model optimized for BPR (BPR-Linear)
+	\item support-vector machine using item attributes
+	\item k-nearest neighbor (kNN):
+		\begin{itemize}
+			\item based on user or item similarities
+			\item collaborative or attribute-/content-based
+		\end{itemize}
+	\item weighted regularized matrix factorization (WR-MF)
+	\item matrix factorization optimized for Bayesian Personalized Ranking (BPR-MF)
+\end{itemize}
+
+\newpage
+
+\section{Download}
+Get the latest release of MyMediaLite here:
+\begin{center}
+	\url{http://ismll.de/mymedialite}
+\end{center}
+
+\section{Contact}
+We are always happy about feedback (suggestions, bug reports, patches, etc.).
+To contact us, send an e-mail to
+\begin{center}
+	\texttt{mymedialite@ismll.de}
+\end{center}
+
+Follow us on Twitter: {\tt @mymedialite}
+
+\section{Acknowledgements}
+
+\begin{floatingfigure}[r]{1.6cm}
+	\vspace{-0.5cm}
+	\includegraphics[width=2.1cm]{fig/uni-hildesheim-400x400.jpg}
+\end{floatingfigure}
+MyMediaLite was developed by Zeno Gantner,
+Steffen Rendle, and Christoph Freudenthaler
+at University of Hildesheim.
+	
+\vspace{0.4cm}
+
+This work was partly funded by the European Commission FP7 project MyMedia
+(Dynamic Personalization of Multimedia under the grant agreement no. 215006.
+
+\vspace{0.2cm}
+
+\begin{center}
+	\includegraphics[width=4.0cm]{fig/MyMediaLogoMedium.png}
+	\hspace{1.5cm}
+	\includegraphics[width=2.0cm]{fig/logo-fp7.png}\\
+\end{center}
+
+\end{document}

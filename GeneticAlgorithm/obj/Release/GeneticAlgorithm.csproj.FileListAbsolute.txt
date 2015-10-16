@@ -1,0 +1,9 @@
+C:\Users\bratao\Desktop\Mestrado\WebMedia\programa\GeneticAlgorithm\bin\Release\GeneticAlgorithm.dll
+C:\Users\bratao\Desktop\Mestrado\WebMedia\programa\GeneticAlgorithm\obj\Release\GeneticAlgorithm.csprojResolveAssemblyReference.cache
+C:\Users\bratao\Desktop\Mestrado\WebMedia\programa\GeneticAlgorithm\obj\Release\GeneticAlgorithm.dll
+E:\Mestrado\WebMedia\programa\GeneticAlgorithm\bin\Release\GeneticAlgorithm.dll
+E:\Mestrado\WebMedia\programa\GeneticAlgorithm\obj\Release\GeneticAlgorithm.csprojResolveAssemblyReference.cache
+E:\Mestrado\WebMedia\programa\GeneticAlgorithm\obj\Release\GeneticAlgorithm.dll
+C:\Users\Bruno\Desktop\novo codigo\RecSys\GeneticAlgorithm\bin\Release\GeneticAlgorithm.dll
+C:\Users\Bruno\Desktop\novo codigo\RecSys\GeneticAlgorithm\obj\Release\GeneticAlgorithm.dll
+C:\Users\Bruno\Desktop\novo codigo\RecSys\GeneticAlgorithm\obj\Release\GeneticAlgorithm.csprojResolveAssemblyReference.cache

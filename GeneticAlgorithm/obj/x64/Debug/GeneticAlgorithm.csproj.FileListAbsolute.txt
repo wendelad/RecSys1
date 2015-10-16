@@ -1,0 +1,4 @@
+E:\Mestrado\WebMedia\programa\GeneticAlgorithm\bin\x64\Debug\GeneticAlgorithm.dll
+E:\Mestrado\WebMedia\programa\GeneticAlgorithm\bin\x64\Debug\GeneticAlgorithm.pdb
+E:\Mestrado\WebMedia\programa\GeneticAlgorithm\obj\x64\Debug\GeneticAlgorithm.dll
+E:\Mestrado\WebMedia\programa\GeneticAlgorithm\obj\x64\Debug\GeneticAlgorithm.pdb
