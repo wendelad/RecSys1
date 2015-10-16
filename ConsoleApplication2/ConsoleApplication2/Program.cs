@@ -14,10 +14,11 @@ namespace ConsoleApplication2
     {
 
 
-        private string strPathFile = @"C:\Users\smart\Downloads\kfolds\Data_Default.txt";
-        const string destinationFileName = @"C:\Users\smart\Downloads\kfolds\Kfold-parte-{0}.txt";
-        const string destinationFileNamepasta = @"C:\Users\smart\Downloads\kfolds\Kfold-pasta-{0}";
-        string diretorio = @"C:\Users\smart\Downloads\kfolds";
+        private string user = Environment.UserName;
+        private string strPathFile = @"C:\Users\" + Environment.UserName + @"\Downloads\kfolds\Data_Default.txt";
+        private string destinationFileName = @"C:\Users\ " + Environment.UserName + @"\Downloads\kfolds\Kfold-parte-{0}.txt";
+        private string destinationFileNamepasta = @"C:\Users\" + Environment.UserName + @"\Downloads\kfolds\Kfold-pasta-{0}";
+        string diretorio = @"C:\Users\" + Environment.UserName + @"\Downloads\kfolds";
         public double contador3;
         public int linhasporarquivo = 0;
         public Boolean cb_marcado;
@@ -25,7 +26,7 @@ namespace ConsoleApplication2
         public int contadorporcento = 0;
         public int flag = 0;
 
-       
+
         public void Abrir()
 
         {
@@ -71,7 +72,7 @@ namespace ConsoleApplication2
 
         }
 
-      
+
 
         private void Concatenar()
 
@@ -99,7 +100,7 @@ namespace ConsoleApplication2
 
                 int numero = 1;
                 for (; numero <= 10; numero++)
-                    File.Delete(@"C:\Users\smart\Downloads\kfolds\Kfold-parte-" + numero + ".txt");
+                    File.Delete(@"C:\Users\" + Environment.UserName + @"\Downloads\kfolds\Kfold-parte-" + numero + ".txt");
 
             }
 
@@ -115,7 +116,7 @@ namespace ConsoleApplication2
 
         }
 
-        
+
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             Alterar(10);
@@ -360,10 +361,10 @@ namespace ConsoleApplication2
         {
 
             // configuração das variaveis onde vão ser lidas os arquivos...
-            string nomeDaPasta = @"C:\Users\smart\Downloads\kfolds\kfold-pasta-";
-            string caminhoArquivoDestinoTest = @"C:\Users\smart\Downloads\kfolds\test.txt";
-            string caminhoArquivoDestinotreino = @"C:\Users\smart\Downloads\kfolds\training.txt";
-            DirectoryInfo dir = new DirectoryInfo(@"C:\Users\smart\Downloads\kfolds");
+            string nomeDaPasta = @"C:\Users\" + Environment.UserName + @"\Downloads\kfolds\kfold-pasta-";
+            string caminhoArquivoDestinoTest = @"C:\Users\" + Environment.UserName + @"\Downloads\kfolds\test.txt";
+            string caminhoArquivoDestinotreino = @"C:\Users\" + Environment.UserName + @"\Downloads\kfolds\training.txt";
+            DirectoryInfo dir = new DirectoryInfo(@"C:\Users\" + Environment.UserName + @"\Downloads\kfolds");
 
 
             // faz as leituras dos dados inseridos na interface fazendo as devidas conversões de valores
@@ -413,15 +414,15 @@ namespace ConsoleApplication2
                 foreach (int training in totalSet)
                 {
 
-                   
+
                 }
                 treino = totalSet.ToList();
 
-                
+
                 foreach (int test in testSet)
                 {
 
-                   
+
 
                     totalSet.Add(test);
                 }
@@ -524,7 +525,7 @@ namespace ConsoleApplication2
             int op;
             do
             {
-
+                Console.WriteLine("UserName: {0}", Environment.UserName);
                 Console.WriteLine("1 - Abrir Datasset");
                 Console.WriteLine("2 - Concatenar");
                 Console.WriteLine("3 - Gerar Kfolds");
@@ -558,10 +559,10 @@ namespace ConsoleApplication2
 
                         c2.gerarTestTrainingSet(10, 20); break;
                 }
-               
+
 
             } while (op != 0);
-            
+
         }
     }
 }
